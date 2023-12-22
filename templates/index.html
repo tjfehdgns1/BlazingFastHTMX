@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blaxzing HTMX</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"
+        integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1 class="p-6 bg-green-300">Blaxzing HTMX</h1>
+        </div>
+    </header>
+
+    <main>
+        <p class="mb-4 text-2xl font-bold">
+            Movie List
+        </p>
+
+        <table class="min-w-[50] mb-4">
+            <thead class="text-lg border-b">
+                <tr>
+                    <th class="p-2">Title</th>
+                    <th class="p-2">Year</th>
+                    <th class="p-2">Rating</th>
+                </tr>
+            </thead>
+            <tbody id="table-body" class="text-sm text-center">
+                {% include "table.html" %}
+            </tbody>
+        </table>
+
+        <button class="px-3 py-1 ml-4 text-white bg-blue-600" hx-get="/index/" hx-target="#table-body"
+            hx-swap="beforeend">
+            Load More
+        </button>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
